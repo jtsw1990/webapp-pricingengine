@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("../partials/head.ejs"); %>
+</head>
+
+<body>
+    <div class="container my-5">
+        <div class="jumbotron">
+            <h1 class="display-4">CoverLess Insurance</h1>
+            <hr class="my-5">
+            <div class="card shadow-lg">
+                <h5 class="card-header lead">Get a fake quote now!</h5>
+                <div class="card-body">
+                    <form action="/quote" method="post">
+                        <div class="row">
+                            <div class="col-sm-6 text-right">
+                                <label for="dob">Date of birth</label>
+                            </div>
+                            <div class="col-xs-6">
+                                <input name="date_of_birth" type="date" class="form-control" id="dob"
+                                    placeholder="Date of Birth" required>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-6 text-right">
+                                <label for="weight">Weight (Kg)</label>
+                            </div>
+                            <div class="col-xs-6">
+                                <input name="weight" type="number" class="form-control" id="weight"
+                                    placeholder="Eg. 60" required>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-6 text-right">
+                                <label for="height">Height (cm)</label>
+                            </div>
+                            <div class="col-xs-6">
+                                <input name="height" type="number" class="form-control" id="height"
+                                    placeholder="Eg. 175" required>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-6 text-right">
+                                <label for="children">Number of Children</label>
+                            </div>
+                            <div class="col-xs-6">
+                                <input name="children" type="number" class="form-control" id="children"
+                                    placeholder="Eg. 2" required>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-6 text-right">
+                                <label for="sex">Sex</label>
+                            </div>
+                            <div class="col-xs-6">
+                                <select name="sex" class="form-control" id="sex" required>
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-6 text-right">
+                                <label for="smoker">Smoker</label>
+                            </div>
+                            <div class="col-xs-6">
+                                <select name="smoker" class="form-control" id="smoker" required>
+                                    <option>Yes</option>
+                                    <option>No</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-6 text-right">
+                                <label for="region">Region of residency</label>
+                            </div>
+                            <div class="col-xs-6">
+                                <select name="region" class="form-control" id="region" required>
+                                    <option>Northeast</option>
+                                    <option>Northwest</option>
+                                    <option>Southeast</option>
+                                    <option>Southwest</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col text-center">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

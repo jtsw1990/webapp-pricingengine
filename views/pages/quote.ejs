@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("../partials/head.ejs"); %>
+</head>
+
+<body>
+    <div class="container my-5">
+        <div class="jumbotron">
+            <div class="card">
+                <h5 class="card-header lead">Your premium breakdown</h5>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            <p class="lead"> Your expected claims cost is: $<%- JSON.stringify(Math.round(body.claims_cost * 100) / 100)  %></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <a href="/" class="btn btn-primary">Back</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
