@@ -1,7 +1,7 @@
 import { Switch, Route } from "react-router-dom";
 import Quote from "./Quote";
 import Claim from "./Claim";
-import Pricing from "./About";
+import About from "./About";
 
 function MainArea() {
   return (
@@ -12,7 +12,7 @@ function MainArea() {
               <Switch>
                 <Route path="/" exact component={Quote}></Route>
                 <Route path="/claim" exact component={Claim}></Route>
-                <Route path="/pricing" exact component={Pricing}></Route>
+                <Route path="/about" exact component={About}></Route>
               </Switch>
           </div>
         </div>
