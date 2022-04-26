@@ -1,6 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const axios = require('axios');
+const ObjectId = require('mongodb').ObjectId;
+
+const Claim = require("../models/claims");
 
 
 router.post("/quote", (req, res) => {
@@ -41,6 +44,46 @@ router.post("/quote", (req, res) => {
     .catch((error) => {
         console.log(error);
     });
+})
+
+
+router.post("/submit_claim", (req, res) => {
+    var age = _calculateAge(req.body.date_of_birth)
+    var bmi = _calculateBMI(req.body.height, req.body.weight)
+    var children = parseInt(req.body.children)
+    var sex = req.body.sex.toLowerCase();
+    var smoker = req.body.smoker.toLowerCase();
+    var region = req.body.region.toLowerCase();
+    var charges = parseFloat(req.body.claimAmount);
+    const claim = new Claim({
+        age: age,
+        sex: sex,
+        bmi: bmi,
+        children: children,
+        smoker: smoker,
+        region: region,
+        charges: charges
+    })
+    claim.save()
+        .then((result) => {
+            console.log(result)
+            res.send(JSON.stringify(result._id));
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+});
+
+
+router.post("/search_claim", (req, res) => {
+    const claimid = new ObjectId(req.body._id);
+    Claim.findById(claimid)
+        .then((result) => {
+            res.send(result)
+        })
+        .then((err) => {
+            console.log(err)
+        })
 })
 
 
