@@ -6,11 +6,12 @@ function Claim() {
     setIsSearching(true);
     const payload = { _id: searchInputId };
     const searchClaim = async () => {
-      const results = await fetch("/search_claim", {
+      const results = await fetch("https://pricingengine-viveo.ondigitalocean.app/search_claim", {
         method: "POST",
         body: JSON.stringify(payload),
         headers: {
-          "Content-type": "application/json",
+          "Content-Type": "application/json",
+          "Accept": "application/json"
         },
       });
       const data = await results.json();
@@ -34,11 +35,12 @@ function Claim() {
       claimAmount: claimAmount,
     };
     const submitClaim = async () => {
-      const results = await fetch("/submit_claim", {
+      const results = await fetch("https://pricingengine-viveo.ondigitalocean.app/submit_claim", {
         method: "POST",
         body: JSON.stringify(payload),
         headers: {
-          "Content-type": "application/json",
+          "Content-Type": "application/json",
+          "Accept": "application/json"
         },
       });
       const data = await results.json();
