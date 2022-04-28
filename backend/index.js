@@ -5,12 +5,13 @@ if (process.env.NODE_ENV !== "production") {
 var path = require("path");
 const express = require("express");
 const bodyParser = require("body-parser");
+var cors = require('cors')
 const routesHandler = require("./routes/handler.js");
 const app = express();
 const mongoose = require("mongoose");
 const { MongoClient, ServerApiVersion } = require('mongodb');
 
-
+app.use(cors())
 app.use(express.static(path.join('public')));
 app.use((req,res) => {
    res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
