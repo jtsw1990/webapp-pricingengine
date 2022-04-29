@@ -30,7 +30,7 @@ function Quote() {
       region: region,
     };
     const fetchQuote = async () => {
-      const results = await fetch("https://pricingengine-viveo.ondigitalocean.app/quote", {
+      const results = await fetch("/api/quote", {
         method: "POST",
         body: JSON.stringify(payload),
         headers: {

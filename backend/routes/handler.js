@@ -6,7 +6,7 @@ const ObjectId = require('mongodb').ObjectId;
 const Claim = require("../models/claims");
 
 
-router.post("/quote", (req, res) => {
+router.post("/api/quote", (req, res) => {
 
     var age = _calculateAge(req.body.date_of_birth)
     var bmi = _calculateBMI(req.body.height, req.body.weight)
@@ -47,7 +47,7 @@ router.post("/quote", (req, res) => {
 })
 
 
-router.post("/submit_claim", (req, res) => {
+router.post("/api/submit_claim", (req, res) => {
     var age = _calculateAge(req.body.date_of_birth)
     var bmi = _calculateBMI(req.body.height, req.body.weight)
     var children = parseInt(req.body.children)
@@ -75,7 +75,7 @@ router.post("/submit_claim", (req, res) => {
 });
 
 
-router.post("/search_claim", (req, res) => {
+router.post("/api/search_claim", (req, res) => {
     const claimid = new ObjectId(req.body._id);
     Claim.findById(claimid)
         .then((result) => {

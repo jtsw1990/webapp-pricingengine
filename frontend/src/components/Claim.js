@@ -6,7 +6,7 @@ function Claim() {
     setIsSearching(true);
     const payload = { _id: searchInputId };
     const searchClaim = async () => {
-      const results = await fetch("https://pricingengine-viveo.ondigitalocean.app/search_claim", {
+      const results = await fetch("/api/search_claim", {
         method: "POST",
         body: JSON.stringify(payload),
         headers: {
@@ -15,6 +15,7 @@ function Claim() {
         },
       });
       const data = await results.json();
+      console.log(data)
       setIsSearching(false);
       setSearchResult(data);
       setIsSearched(true);
@@ -35,7 +36,7 @@ function Claim() {
       claimAmount: claimAmount,
     };
     const submitClaim = async () => {
-      const results = await fetch("https://pricingengine-viveo.ondigitalocean.app/submit_claim", {
+      const results = await fetch("/api/submit_claim", {
         method: "POST",
         body: JSON.stringify(payload),
         headers: {

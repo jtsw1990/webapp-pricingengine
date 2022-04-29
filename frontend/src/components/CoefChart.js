@@ -1,9 +1,8 @@
 import { Bar } from "react-chartjs-2";
-import { Chart, registerables, xAxes } from "chart.js";
+import { Chart, registerables } from "chart.js";
 Chart.register(...registerables);
 
 const CoefChart = (props) => {
-  const labels = ["January", "February", "March", "April", "May", "June"];
 
   const data = {
 
