@@ -30,7 +30,7 @@ function Quote() {
       region: region,
     };
     const fetchQuote = async () => {
-      const results = await fetch("/api/quote", {
+      const results = await fetch("/quote", {
         method: "POST",
         body: JSON.stringify(payload),
         headers: {

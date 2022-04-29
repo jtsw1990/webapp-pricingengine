@@ -6,7 +6,7 @@ function Claim() {
     setIsSearching(true);
     const payload = { _id: searchInputId };
     const searchClaim = async () => {
-      const results = await fetch("/api/search_claim", {
+      const results = await fetch("/search_claim", {
         method: "POST",
         body: JSON.stringify(payload),
         headers: {
@@ -36,7 +36,7 @@ function Claim() {
       claimAmount: claimAmount,
     };
     const submitClaim = async () => {
-      const results = await fetch("/api/submit_claim", {
+      const results = await fetch("/submit_claim", {
         method: "POST",
         body: JSON.stringify(payload),
         headers: {
